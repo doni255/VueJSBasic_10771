@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" contet="width=device-width, initial-scale=1.0">
+    <title>Guided 1</title>
+   
+   </head>
+   <body> 
+    
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <h1>{{ judul }}</h1><!--Pemanggilan judul menggunakan ' {{ }}' -->
+
+        <p>{{ belajar('Vue JS') }}</p> <!-- Memanggil method belajar -->
+
+        <p>
+            Klik link untuk mengakses
+            <a v-bind:href="link">
+                Dokumentasi Vue JS
+            </a>
+        </p>
+        <div>
+            <input v-model="teks" placeholder="tulis sesuatu...">
+            <h2>{{ teks }}</h2>
+        </div>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data() {
+                return{
+                    judul: 'Hello World!', // Deklarasi judul
+                    link: "https://vuejs.org/guide/introduction.html", // Declaration link for href 
+                    teks: null
+                }
+            },
+            methods: {
+                belajar(pelajaran)
+                {
+                    return `Aku sedang belajar ${pelajaran}`;
+                },  
+            }
+        }).mount('#app')
+    </script>
+   </body>
+
+   
+
+  
+</html>

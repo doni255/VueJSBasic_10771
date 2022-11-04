@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guided 2</title>
+    
+</head>
+
+<body>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+    <div id="app">
+        <h2>Halo, aku {{ pria.nama }}</h2>
+        <p>
+            umurku {{ pria.umur }} tahun dan aku bekerja sebagai seorang {{ pria.pekerjaan }}
+            <br>
+            Aku
+            <span v-if="pria.status == 'udah punya ayang'">
+                sudah mau menikah
+            </span>
+            <span v-else-if="pria.status == 'belum punya ayang'">
+                masih lajang hehehe
+            </span>
+            <span v-else>
+                dalam hubungan yang rumit
+            </span>
+        </p>
+
+        <div>
+            <button @click="kurangiUmur">Kurangi Umurku</button>
+            <button @click="tambahUmur">Tambah Umurku</button>
+        </div>
+
+        <p v-show="pria.skills">Kemampuanku adalah : </p>
+        <ul v-for="(skill, index) in pria.skills" :key="index">
+            <li> {{ skill }} </li>
+        </ul>
+    </div>
+
+    <script>
+        const { createApp } = Vue
+
+        createApp({
+            data(){
+                return{
+                    pria:
+                    {
+                        nama: 'Doni Wijaya',
+                        umur: 21,
+                        pekerjaan: 'Data Scientist',
+                        skills: ["playing games","Codding"],
+                        status: 'belum punya ayang',
+                }
+            }
+        },
+        methods: {
+                kurangiUmur()
+                {
+                    this.pria.umur--;
+                },
+                tambahUmur()
+                {
+                    this.pria.umur++;
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+
+
+</html>
