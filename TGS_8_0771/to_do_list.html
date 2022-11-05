@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <link rel="stylesheet" href="style.css">
+        <title>
+            To Do List
+        </title>
+    </head>
+    <body>
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>   
+        <br><br><br><br>
+        <form action="todoolist">
+            <div class="inputDiv">
+                <input type="text" class="input" placeholder="Nama" style="background-color: rgba(207, 198, 198, 0.751)">
+            </div>
+    
+            <div class="inputDiv">
+                <select name="cars" id="cars" class="input" style="background-color: rgba(207, 198, 198, 0.751)">
+                    <option value="penting">penting</option>
+                    <option value="Biasa">biasa</option>
+                    <option value="tidak penting">tidak penting</option>
+                  </select>
+            </div> 
+    
+            <div class="inputDiv2">
+                <textarea name="catatan" id="catatan" cols="40" rows="10" placeholder="Catatan" style="background-color: rgba(207, 198, 198, 0.751)">                 
+                </textarea>
+                
+            </div>
+            <div class="reset">
+                <button class="btn" value="reset" type="reset">Submit</button>
+            </div>
+            
+            
+        
+        </form>
+        
+       
+        <div id="footer">
+            <div id="app">
+                <h2 style="text-align-center; padding-top: 5px">
+                    {{ profile.nama}} | {{ profile.npm}} | {{ profile.class }}
+                </h2>
+            </div>
+        </div>
+        <script>
+            const { createApp } = Vue
+
+            createApp({
+               data(){
+                return{
+                profile:{
+                    nama:'Doni Wijaya',
+                    npm : 200710771,
+                    class : 'Pemrograman Web C',
+                     }
+                  }
+            },
+        }).mount('#app')
+        </script>  
+    </body>
+</html>
